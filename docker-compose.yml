@@ -1,0 +1,44 @@
+version: '3.7'
+
+volumes:
+    logs:
+        driver: local
+
+services:    
+    api:
+        image: php:8.0.0-fpm-alpine
+        working_dir: /var/www
+        build: .
+        restart: always
+        command: php -S 0.0.0.0:80 -t public      
+        ports:
+            - 81:80
+        stdin_open: true
+        tty: true
+        volumes:
+            - .:/var/www
+            - logs:/var/www/logs     
+
+    db:
+        image: mysql
+        command: --default-authentication-plugin=mysql_native_password
+        restart: always
+        environment:
+            MYSQL_ROOT_PASSWORD: softintech@1234 
+            
+    phpmyadmin:
+        image: phpmyadmin
+        restart: always
+        ports:
+            - 82:80
+        environment:
+            - PMA_ARBITRARY=1
+
+networks: 
+    default:
+        external: 
+            name:
+                mpos_net
+
+
+

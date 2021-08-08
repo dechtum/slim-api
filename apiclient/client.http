@@ -1,0 +1,342 @@
+#ADMIN INITIAL
+POST http://localhost:81/mcs/init
+Content-Type: application/json
+### 
+
+#สมัครสามารชิก
+POST http://localhost:81/register
+Content-Type: application/json
+
+{
+    "action":"member_register",
+    "sql":{
+        "username":"test5555dsfds",
+        "password":"S123456",
+        "title_id":"1",
+        "name":"ทดสอบddddd",
+        "surname":"สมัครdddd",
+        "tel":"082-123-1457",
+        "address":"10/1 ม 6",
+        "picture":"",
+        "district_id":"1",
+        "ampher_id":"2",
+        "province_id":"3",
+        "zipcode_id":"336633",
+        "active":"1"
+    }
+}
+
+###  eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VybmFtZSI6InRlc3Q1NTU1ZHNmZHMiLCJwYXNzd29yZCI6IjEifQ.783MLtL0Zy8camMbvGk7nciKHQ6XBGAwlT9wZa8F8pw
+POST http://localhost:81/login/admin
+Content-Type: application/json
+
+{
+    "username":"test5555dsfds",
+    "password":"S123456"
+}
+
+###
+
+#สร้างร้านค้า
+POST http://localhost:81/shop
+Content-Type: application/json
+Authorization: Basic eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VybmFtZSI6InRlc3Q1NTU1ZHNmZHMiLCJwYXNzd29yZCI6IjEifQ.783MLtL0Zy8camMbvGk7nciKHQ6XBGAwlT9wZa8F8pw
+
+{
+    "action":"member_shop",
+    "id":"",
+    "registerId":"1",
+    "sql":{
+        "name":"ร้านขายยา",
+        "tel":"082-222-2222",
+        "address":"12/23255645321d ,",
+        "picture":"",
+        "district_id":"11",
+        "ampher_id":"2",
+        "province_id":"60",
+        "zipcode_id":"123321",
+        "active":"1"
+    }
+}
+
+###
+
+
+#shop ข้อมูลที่แสดงใน select box [all หรือ กำหนด id]
+POST http://localhost:81/shoplist
+Content-Type: application/json
+Authorization: Basic eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VybmFtZSI6InRlc3Q1NTU1ZHNmZHMiLCJwYXNzd29yZCI6IjEifQ.783MLtL0Zy8camMbvGk7nciKHQ6XBGAwlT9wZa8F8pw
+
+{
+    "registerId":"1",
+    "shopId":[""]
+}
+
+###
+
+#สร้างพนักงาน
+POST http://localhost:81/employee
+Content-Type: application/json
+Authorization: Basic eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VybmFtZSI6InRlc3Q1NTU1ZHNmZHMiLCJwYXNzd29yZCI6IjEifQ.783MLtL0Zy8camMbvGk7nciKHQ6XBGAwlT9wZa8F8pw
+
+{
+    "action":"member_employee",
+    "id":"",
+    "registerId":"1",
+    "sql":{
+        "shop_id":"1",
+        "title_id":"9",
+        "name":"ssss",
+        "surname":"ดีดี",
+        "tel":"9999999",
+        "position":"5",
+        "jd":"พนักงานขายหน้าร้าน",
+        "username":"test2ss",
+        "password":"T@2345!!",
+        "address":"29 , 125",
+        "picture":"--",
+        "district_id":"1",
+        "ampher_id":"2",
+        "province_id":"3",
+        "zipcode_id":"99999",
+        "active":"1"
+    }
+}
+
+###
+
+#upload pic
+POST http://localhost:81/upload
+Content-Type: application/json
+Authorization: Basic eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VybmFtZSI6InRlc3Q1NTU1ZHNmZHMiLCJwYXNzd29yZCI6IjEifQ.783MLtL0Zy8camMbvGk7nciKHQ6XBGAwlT9wZa8F8pw
+
+{
+    "id":"1",
+    "folder":"MPOS",
+    "images":[
+        "data:image/png;base64,eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9",
+        "data:image/png;base64,eyJ1c2VybmFtZSI6InRlc3Q1NTU1ZHNmZHMiLCJwYXNzd29yZCI6IjQ3NyJ9",
+        "data:image/png;base64,pZs51-NGolCPU3N6m-GGnLp226A-bISdR8gQouTgDsM"
+        ]
+}
+
+###
+
+#download pic
+POST http://localhost:81/download
+Content-Type: application/json
+Authorization: Basic eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VybmFtZSI6InRlc3Q1NTU1ZHNmZHMiLCJwYXNzd29yZCI6IjEifQ.783MLtL0Zy8camMbvGk7nciKHQ6XBGAwlT9wZa8F8pw
+
+{
+    "id":"1",
+    "folder":"MPOS",
+    "images":[
+        "namePIC0.json",
+        "namePIC1.json",
+        "namePIC2.json"
+        ]
+}
+
+###
+
+
+
+#get queue เพื่อปร้น
+POST http://localhost:81/queue
+Content-Type: application/json
+Authorization: Basic eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VybmFtZSI6InRlc3Q1NTU1ZHNmZHMiLCJwYXNzd29yZCI6IjEifQ.783MLtL0Zy8camMbvGk7nciKHQ6XBGAwlT9wZa8F8pw
+
+{
+    "registerId":"477",
+    "shopId":"466"
+}
+###
+
+
+
+
+#สร้างพนักงาน
+POST http://localhost:81/member
+Content-Type: application/json
+Authorization: Basic eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VybmFtZSI6InRlc3Q1NTU1ZHNmZHMiLCJwYXNzd29yZCI6IjEifQ.783MLtL0Zy8camMbvGk7nciKHQ6XBGAwlT9wZa8F8pw
+
+{
+    "action":"member_employee",
+    "id":"",
+    "registerId":"1",
+    "sql":{
+        "shop_id":"466",
+        "title_id":"1",
+        "name":"ไก่dsfsdfsdf",
+        "surname":"erwerwerrew",
+        "tel":"0-124567412",
+        "position":"1",
+        "jd":"ทดสอลระบบบริษัท",
+        "username":"user2",
+        "password":"321456",
+        "address":"jjjfff",
+        "picture":"",
+        "district_id":"5",
+        "ampher_id":"4",
+        "province_id":"3",
+        "zipcode_id":"2",
+        "active":"1"
+    }
+}
+
+###
+
+#update ข้อมูลการขาย
+POST http://localhost:81/product/sale
+Content-Type: application/json
+Authorization: Basic eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VybmFtZSI6InRlc3Q1NTU1ZHNmZHMiLCJwYXNzd29yZCI6IjEifQ.783MLtL0Zy8camMbvGk7nciKHQ6XBGAwlT9wZa8F8pw
+
+{    
+    "id":"",
+    "registerId":"477",
+    "shopId":"466",    
+    "product_id":"1",
+    "employee_id":"2",
+    "ingredient":"1",
+    "sale_date":"2021-08-05",
+    "sales_sum_subtotal":"35",
+    "sales_discount":"0",
+    "sales_special_discount":"0",
+    "sales_sum_grandtotal":"35",
+    "sales_queue":"35",
+}
+
+###
+
+#update item product
+POST http://localhost:81/product/sale
+Content-Type: application/json
+Authorization: Basic eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VybmFtZSI6InRlc3Q1NTU1ZHNmZHMiLCJwYXNzd29yZCI6IjEifQ.783MLtL0Zy8camMbvGk7nciKHQ6XBGAwlT9wZa8F8pw
+
+{    
+    "id":"",
+    "registerId":"477",
+    "shopId":"466",
+    "sql":{
+        "product_group_id":"1",
+        "product_id":"1",
+        "employee_id":"2",
+        "employee_name":"เอสเพรสโซ้",
+        "product_item_type_id":"1",
+        "sale_date":"2021-08-05",
+        "sales_sum_subtotal":"35",
+        "sales_discount":"0",
+        "sales_special_discount":"0",
+        "sales_sum_grandtotal":"35",
+        "sales_queue":"35",
+        "active":"1"
+    },    
+    "product_sales_item":"[{\"product_sales_id\":\"\",\"product_id\":\"1\",\"product_code\":\"M001\",\"product_name\":\"กาแฟ\",\"product_detail\":\"ggn\",\"product_price\":\"0.5\",\"product_unit\":\"กรัม\",\"item_sum_total\":\"1\",\"active\":\"1\"},{\"product_sales_id\":\"\",\"product_id\":\"2\",\"product_code\":\"M002\",\"product_name\":\"กาแฟ\",\"product_detail\":\"ggn\",\"product_price\":\"1\",\"product_unit\":\"ใบ\",\"item_sum_total\":\"1\",\"active\":\"1\"}]"
+}
+
+###
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# ................................................. API
+#download pic
+POST http://localhost:81/mcs/product
+Content-Type: application/json
+Authorization: Basic eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VybmFtZSI6InRlc3Q1NTU1ZHNmZHMiLCJwYXNzd29yZCI6IjEifQ.783MLtL0Zy8camMbvGk7nciKHQ6XBGAwlT9wZa8F8pw
+
+{
+    "productCode":"MCS0010"
+}
+###
+#menu
+POST http://localhost:81/dashboard
+Content-Type: application/json
+Authorization: Basic eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VybmFtZSI6InRlc3Q1NTU1ZHNmZHMiLCJwYXNzd29yZCI6IjEifQ.783MLtL0Zy8camMbvGk7nciKHQ6XBGAwlT9wZa8F8pw
+
+{
+    "id":[10]
+}
+
+###
+
+#menu
+POST http://localhost:81/menu
+Content-Type: application/json
+Authorization: Basic eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VybmFtZSI6InRlc3Q1NTU1ZHNmZHMiLCJwYXNzd29yZCI6IjEifQ.783MLtL0Zy8camMbvGk7nciKHQ6XBGAwlT9wZa8F8pw
+
+{
+    "id":[""]
+}
+
+###
+
+#ทั้งหมด/////////////////////////////////
+#select ข้อมูลลง database
+POST http://localhost:81/select
+Content-Type: application/json
+Authorization: Basic eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VybmFtZSI6InRlc3Q1NTU1ZHNmZHMiLCJwYXNzd29yZCI6IjEifQ.783MLtL0Zy8camMbvGk7nciKHQ6XBGAwlT9wZa8F8pw
+
+{
+    "action":"material",
+    "id":["466","467"],
+    "method":"=",
+    "registerId":"477",
+    "shopId":"466"
+}
+
+###
+
+#update ข้อมูลลง database
+POST http://localhost:81/update
+Content-Type: application/json
+Authorization: Basic eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VybmFtZSI6InRlc3Q1NTU1ZHNmZHMiLCJwYXNzd29yZCI6IjEifQ.783MLtL0Zy8camMbvGk7nciKHQ6XBGAwlT9wZa8F8pw
+
+
+{
+    "action":"material",
+    "id":"",
+    "registerId":"477",
+    "shopId":"466",
+    "sql":{
+        "material_code":"MAT0001",
+        "material_unit_id":"1",
+        "material_group_id":"2",
+        "material_name":"แก้ว",
+        "material_detail":"*sfsdwsdfasd",
+        "picture":"wwwwwwwwwwwwv",
+        "active":"1"
+    }
+}
+
+###
+
+
+
+#delete ข้อมูล database
+POST http://localhost:81/delete
+Content-Type: application/json
+Authorization: Basic eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VybmFtZSI6InRlc3Q1NTU1ZHNmZHMiLCJwYXNzd29yZCI6IjEifQ.783MLtL0Zy8camMbvGk7nciKHQ6XBGAwlT9wZa8F8pw
+
+{
+    "action":"material",
+    "id":["1"],
+    "method":"=",
+    "registerId":"477",
+    "shopId":"466"
+}
+
+###

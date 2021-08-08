@@ -1,0 +1,51 @@
+#material  กรณีซื้อวัตถุดิบเข้าร้าน  
+# เพิ่ม mat และเพิ่ม stock  OK
+# ถ้า mat มีแล้ว จะเพิ่ม stock เฉพราะสต๊อก  OK
+# ถ้าปรับลด stock
+POST http://localhost:81/material
+Content-Type: application/json
+Authorization: Basic eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VybmFtZSI6InRlc3Q1NTU1ZHNmZHMiLCJwYXNzd29yZCI6IjEifQ.783MLtL0Zy8camMbvGk7nciKHQ6XBGAwlT9wZa8F8pw
+
+{
+    "action":"material",
+    "id":"",
+    "registerId":"1",
+    "shopId":"4",  
+    "employee":"8",  
+    "sql":[
+        {
+            "material_code":"",
+            "material_unit_id":"10",
+            "material_group_id":"4",
+            "material_name":"กาแฟ",
+            "material_detail":"21a",
+            "material_price":"2503",
+            "material_number":"33",
+            "picture":"5s",
+            "active":"1"
+        },
+        {
+            "material_code":"",
+            "material_unit_id":"9",
+            "material_group_id":"6",
+            "material_name":"แก้ว",
+            "material_detail":"21adsssddfdsdfdf",
+            "material_price":"2503",
+            "material_number":"330000000000",
+            "picture":"5s",
+            "active":"1"
+        },
+        {
+            "material_code":"",
+            "material_unit_id":"10",
+            "material_group_id":"4",
+            "material_name":"น้ำตาล",
+            "material_detail":"21a",
+            "material_price":"2503",
+            "material_number":"33",
+            "picture":"5s",
+            "active":"1"
+        }
+    ]
+}
+###
